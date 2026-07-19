@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap");
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Default theme: pink-cream editorial */
+:root {
+  --bg: #f8ece8;
+  --bg-hero: #f9e9e5;
+  --bg-team: #faf8f6;
+  --bg-portfolio: #e8e4dc;
+  --bg-contact: #141312;
+  --bg-soft: #f0ebe6;
+  --bg-card: #ffffff;
+  --bg-dark: #141312;
+  --fg: #1a1917;
+  --fg-on-dark: #f8ece8;
+  --muted: #6d6561;
+  --muted-on-dark: #a8a098;
+  --faint: #9a908a;
+  --accent: #c45c6a;
+  --accent-soft: rgba(196, 92, 106, 0.14);
+  --accent-ink: #ffffff;
+  --border: rgba(26, 25, 23, 0.12);
+  --border-strong: rgba(26, 25, 23, 0.18);
+  --border-on-dark: rgba(248, 236, 232, 0.14);
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-body: "Figtree", sans-serif;
+  /* Soft, broken hatch — closer to Figma (faint + interrupted) */
+  --pattern-ink: rgba(26, 25, 23, 0.035);
+  --pattern-ink-mid: rgba(26, 25, 23, 0.045);
+  --pattern-ink-dark: rgba(248, 236, 232, 0.055);
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/*
+  Soft broken diagonals: stroke → long transparent gap
+  so the hatch feels intermittent instead of endless.
+*/
+.pattern-diagonal {
+  background-color: transparent;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--pattern-ink-mid) 0,
+    var(--pattern-ink-mid) 1px,
+    transparent 1px,
+    transparent 18px,
+    var(--pattern-ink) 18px,
+    var(--pattern-ink) 19px,
+    transparent 19px,
+    transparent 48px
+  );
+}
+
+.pattern-diagonal-dark {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--pattern-ink-dark) 0,
+    var(--pattern-ink-dark) 1px,
+    transparent 1px,
+    transparent 20px,
+    rgba(248, 236, 232, 0.03) 20px,
+    rgba(248, 236, 232, 0.03) 21px,
+    transparent 21px,
+    transparent 52px
+  );
+}
+
+.pattern-waves {
+  background-image: repeating-linear-gradient(
+    -12deg,
+    transparent,
+    transparent 14px,
+    var(--pattern-ink) 14px,
+    var(--pattern-ink) 15px
+  );
+}
