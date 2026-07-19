@@ -93,6 +93,9 @@ export const team: TeamMember[] = [
     index: "03",
     name: "Raymond Zhang",
     role: "Co-founder & Head of Marketing",
+    location: "Ann Arbor, MI",
+    chapter:
+      "Building with the team and learning through the summer while shaping a product with real users.",
     about:
       "I’ve always wanted to use my technical knowledge of markets and economics to produce something meaningful that will hopefully leave an impact worth remembering. For a while, I searched for the right place to apply this knowledge, whether in sector-level economics, finance, firm behavior, or other areas that matter. My experiences, both academic and work-related, made me realize that I don’t want to be limited to one field. I want to use my knowledge to directly create change and help level the playing field for people, especially in work that isn’t purely market-centered.\n\nAt Gizakura, I’m here not just to help people find the products and services they’re looking for in this economy, but also to grow with the team. What matters is that I learn from others, contribute what I can, and better understand together what makes an incredible teammate and leader.",
     passions: ["Digital Art", "Literature", "Cinema & Animation"],
