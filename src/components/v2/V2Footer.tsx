@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/data/site";
 
-export function V3Footer() {
+export function V2Footer() {
   return (
     <footer className="relative border-t border-[var(--border)] bg-[var(--bg-dark)] text-[var(--fg-on-dark)]">
       <div className="pattern-diagonal-dark absolute inset-0 opacity-60" aria-hidden />
@@ -18,10 +18,19 @@ export function V3Footer() {
               aria-hidden
             />
             <p className="type-title">{site.name}</p>
+            <span className="type-label-xs tracking-[0.2em] text-[var(--contact-label)]">
+              v2
+            </span>
           </div>
           <p className="measure-prose mt-3 max-w-sm text-sm leading-relaxed text-muted-on-dark">
             {site.tagline}.
           </p>
+          <Link
+            href="/"
+            className="tap-target footer-link -ml-3 mt-4 inline-flex text-sm text-[var(--contact-body)]"
+          >
+            ← Current site (v1)
+          </Link>
         </div>
         <div className="flex flex-col gap-6 sm:flex-row sm:gap-14">
           <div>

@@ -1,5 +1,5 @@
 {
-  "name": "gizakura",
+  "name": "@resumelink/gizakura",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -13,6 +13,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "lucide-react": "^0.503.0",
     "motion": "^12.23.12",
     "next": "16.2.9",
     "react": "19.2.4",

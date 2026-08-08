@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <>
       <V3Nav />
-      <main>
+      <main id="main" tabIndex={-1}>
         <HeroSection />
         <AboutSection />
         <TeamSection />

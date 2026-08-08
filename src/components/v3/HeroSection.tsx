@@ -1,93 +1,106 @@
 "use client";
 
 import { motion } from "motion/react";
+import { FlowButton } from "@/components/ui/flow-button";
+import { EditorialTextLink } from "@/components/ui/editorial-button";
+import { GlassPanel } from "@/components/ui/liquid-glass";
+import { ShaderBackground } from "@/components/ui/rds-silk";
 import { SakuraField } from "@/components/v3/SakuraField";
+import { useMotionSafe } from "@/lib/motion-safe";
 import { site } from "@/data/site";
 
+/**
+ * Editorial hero with ghost wordmark + copy panel.
+ */
 export function HeroSection() {
+  const { enter, reduceMotion } = useMotionSafe();
+
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden px-6 pb-24 pt-32 md:px-10 md:pb-28 md:pt-36"
-      style={{ background: "var(--bg-hero)" }}
+      className="relative flex h-[100svh] min-h-[100svh] max-h-[100svh] flex-col overflow-hidden bg-[var(--bg-hero)]"
     >
-      <div className="pattern-diagonal absolute inset-0 opacity-80" aria-hidden />
-      <SakuraField density="hero" />
+      <ShaderBackground className="absolute inset-0 z-0" />
+      <div
+        className="pointer-events-none absolute inset-0 z-[1] bg-[color-mix(in_srgb,var(--bg-hero)_32%,transparent)]"
+        aria-hidden
+      />
+      <div className="pattern-diagonal absolute inset-0 z-[1] opacity-30" aria-hidden />
+      <SakuraField density="hero" className="z-[2]" />
 
-      <div className="relative z-10 mx-auto w-full max-w-6xl">
+      <div className="relative z-10 mx-auto flex h-full w-full max-w-6xl flex-col justify-center px-6 pb-14 pt-[var(--nav-height)] md:px-10 md:pb-16">
         <motion.div
           className="flex items-center gap-3"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
+          {...enter({ opacity: 0, y: 12 })}
           transition={{ duration: 0.5 }}
         >
           <span
-            className="h-px w-8"
-            style={{ background: "var(--border-strong)" }}
+            className="h-px w-8 bg-[var(--border-strong)]"
             aria-hidden
           />
-          <p
-            className="text-[0.7rem] uppercase tracking-[0.22em]"
-            style={{ color: "var(--muted)" }}
-          >
-            {site.tagline}
-          </p>
+          <p className="type-label text-muted">{site.tagline}</p>
         </motion.div>
 
-        <motion.h1
-          className="font-display mt-8 text-[clamp(4.25rem,16vw,9.5rem)] leading-[0.9] tracking-tight"
-          initial={{ opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {site.name}
-        </motion.h1>
-
-        <motion.p
-          className="mt-8 max-w-lg text-base leading-relaxed md:mt-10 md:text-lg"
-          style={{ color: "var(--muted)" }}
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.55 }}
-        >
-          {site.heroLine}
-        </motion.p>
+        <div className="relative mt-8 isolate">
+          <motion.p
+            className="hero-ghost-wordmark pointer-events-none absolute -left-[2%] top-[-12%] z-0 select-none font-display text-[clamp(5rem,18vw,11rem)] leading-[0.85] tracking-[-0.03em]"
+            aria-hidden
+            {...(reduceMotion
+              ? {}
+              : {
+                  initial: { opacity: 0, y: 12 },
+                  animate: { opacity: 0.28, y: 0 },
+                  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+                })}
+          >
+            {site.name}
+          </motion.p>
+          <motion.h1
+            className="relative z-[1] type-display-hero tracking-tight text-[var(--fg)]"
+            {...enter({ opacity: 0, y: 28 })}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {site.name}
+          </motion.h1>
+        </div>
 
         <motion.div
-          className="mt-10 flex flex-wrap items-center gap-6 md:mt-12"
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.18, duration: 0.5 }}
+          className="mt-8 max-w-xl md:mt-10"
+          {...enter({ opacity: 0, y: 18 })}
+          transition={{ delay: 0.08, duration: 0.55 }}
         >
-          <a
-            href="#portfolio"
-            className="text-sm font-medium underline underline-offset-4 decoration-[var(--border-strong)] transition-colors hover:decoration-[var(--fg)]"
+          <GlassPanel
+            tone="light"
+            radius="2xl"
+            className="hero-copy-panel border p-6 md:p-8"
           >
-            View our work
-          </a>
-          <a
-            href="#team"
-            className="text-sm transition-colors hover:text-[var(--fg)]"
-            style={{ color: "var(--muted)" }}
-          >
-            Meet the team →
-          </a>
+            <p className="hero-copy-lead type-body-lg measure-prose">
+              {site.heroLine}
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-4 md:gap-5">
+              <FlowButton
+                href="#about"
+                text="About the studio"
+                variant="primary-glow"
+                aria-label="Learn about Gizakura"
+              />
+              <EditorialTextLink href="#team" className="hero-copy-link">
+                Meet the founders →
+              </EditorialTextLink>
+            </div>
+          </GlassPanel>
         </motion.div>
       </div>
 
       <motion.div
-        className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 md:bottom-8"
+        {...enter({ opacity: 0, y: 0 })}
         transition={{ delay: 0.6, duration: 0.6 }}
+        aria-hidden
       >
-        <span className="h-8 w-px bg-[var(--border-strong)]" aria-hidden />
-        <span
-          className="text-[0.6rem] uppercase tracking-[0.2em]"
-          style={{ color: "var(--faint)" }}
-        >
-          Scroll
-        </span>
+        <span className="h-8 w-px bg-[var(--border-strong)]" />
+        <span className="type-label-xs text-faint">Scroll</span>
       </motion.div>
     </section>
   );

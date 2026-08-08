@@ -1,24 +1,23 @@
-# Gizakura
+# Gizakura (company site)
 
-Studio website for the team behind [Resumurai](https://www.resumurai.com).
+Studio site for the team behind [Resumurai](https://www.resumurai.com). Temporary name — easy to rename later.
 
 ## Run locally
 
 ```bash
-pnpm install
-pnpm dev
+pnpm dev:gizakura
 ```
 
 Open [http://localhost:3001](http://localhost:3001).
 
-## Scripts
+## Routes
 
-| Command | Purpose |
-|---------|---------|
-| `pnpm dev` | Dev server on port 3001 |
-| `pnpm build` | Production build |
-| `pnpm start` | Start production server |
+| Route | Purpose |
+|-------|---------|
+| `/` | Single-page home (About, Team, Portfolio, Contact) |
+| `/privacy` | Privacy Policy |
+| `/terms` | Terms of Use |
 
-## Content
+## Fill in later
 
-Edit `src/data/site.ts` for copy, founders, and links.
+Edit `src/data/site.ts` — copy, team bios, contact email/LinkedIn, Resumurai profile URLs.
