@@ -38,6 +38,8 @@ type GlassPanelProps = {
   href?: string;
   external?: boolean;
   ariaLabel?: string;
+  /** Set false to skip the SVG displacement filter — expensive to recomposite when many panels animate at once (e.g. scroll-linked grids). Backdrop blur still applies. */
+  distortion?: boolean;
 } & Omit<ComponentPropsWithoutRef<"div">, "children">;
 
 /** SVG displacement filter — mount once near document root. */
@@ -110,6 +112,7 @@ export function GlassPanel({
   href,
   external,
   ariaLabel,
+  distortion = true,
   ...rest
 }: GlassPanelProps) {
   const reduceMotion = useReducedMotion() ?? false;
@@ -136,7 +139,7 @@ export function GlassPanel({
         style={{
           backdropFilter: "blur(var(--glass-blur))",
           WebkitBackdropFilter: "blur(var(--glass-blur))",
-          filter: reduceMotion ? undefined : "url(#glass-distortion)",
+          filter: reduceMotion || !distortion ? undefined : "url(#glass-distortion)",
           isolation: "isolate",
         }}
         aria-hidden

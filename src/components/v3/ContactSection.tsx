@@ -37,24 +37,22 @@ export function ContactSection() {
             {site.contactLine}
           </motion.p>
 
-          <motion.div className="mt-12" {...inView({ opacity: 0, y: 12 }, 0.1)}>
-            <GlassPanel
-              tone="accent"
-              radius="xl"
-              href={`mailto:${site.email}`}
-              ariaLabel={`Email ${site.email}`}
-              className="inline-block max-w-full border border-[var(--border-on-dark)] px-6 py-5 md:px-8 md:py-6"
+          <motion.div
+            className="mt-12 max-w-sm border border-[var(--border-on-dark)] bg-[var(--bg-card)] p-6 text-[var(--fg)] md:p-8"
+            {...inView({ opacity: 0, y: 12 }, 0.1)}
+          >
+            <p
+              className="type-label-sm text-faint"
+              style={{ letterSpacing: "0.16em" }}
             >
-              <p
-                className="type-label-sm text-[var(--contact-label)]"
-                style={{ letterSpacing: "0.16em" }}
-              >
-                Email
-              </p>
-              <p className="text-safe mt-2 text-xl text-[var(--accent-ink)] md:text-2xl">
-                {site.email}
-              </p>
-            </GlassPanel>
+              Email
+            </p>
+            <a
+              href={`mailto:${site.email}`}
+              className="text-safe -ml-3 mt-2 inline-flex min-h-11 items-center text-xl text-[var(--fg)] underline decoration-[var(--border-strong)] underline-offset-4 hover:decoration-[var(--fg)] md:text-2xl"
+            >
+              {site.email}
+            </a>
           </motion.div>
 
           <EditorialTextLink

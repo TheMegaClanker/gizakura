@@ -512,12 +512,14 @@ button:not(:disabled),
 
 .tag-chip {
   display: inline-block;
+  max-width: 100%;
   padding: 0.25rem 0.75rem;
   font-size: 0.75rem;
   letter-spacing: 0.025em;
   color: var(--muted);
   border: 1px solid var(--border-strong);
   background: transparent;
+  overflow-wrap: break-word;
 }
 
 /* ─── Team cards (editorial grid + per-founder accent) ─── */

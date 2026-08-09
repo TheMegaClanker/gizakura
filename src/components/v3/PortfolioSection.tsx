@@ -72,17 +72,6 @@ export function PortfolioSection() {
             </div>
           </div>
         </motion.article>
-
-        <motion.div
-          className="mt-6 border border-dashed border-[var(--border-strong)] bg-[var(--bg-card)] px-6 py-10 md:px-10"
-          {...inView({ opacity: 0, y: 16 }, 0.08)}
-        >
-          <div className="flex items-start justify-between gap-4">
-            <p className="type-label-sm text-faint">Coming soon</p>
-            <p className="type-label-sm text-faint">In development</p>
-          </div>
-          <p className="type-title mt-6 text-muted">{site.comingSoonLabel}</p>
-        </motion.div>
       </div>
     </section>
   );

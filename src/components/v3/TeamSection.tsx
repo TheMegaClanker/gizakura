@@ -57,6 +57,7 @@ function TeamCard({ member, canHover }: TeamCardProps) {
       tone="light"
       radius="xl"
       interactive
+      distortion={false}
       data-active={expanded ? "true" : undefined}
       className="team-card-panel group/card h-full overflow-hidden border border-[var(--border)]"
     >
@@ -69,9 +70,9 @@ function TeamCard({ member, canHover }: TeamCardProps) {
           setSuppressHover(false);
         }}
       >
-        <div className="team-card-sidebar flex flex-col items-center gap-4 border-b border-[var(--border)] p-5 md:border-b-0 md:border-r md:p-6">
-          <div className="team-card-photo-wrap">
-            <div className="team-card-photo-frame relative size-[9.5rem] shrink-0 overflow-hidden rounded-lg border bg-[var(--bg-team)] sm:size-40 lg:size-44">
+        <div className="team-card-sidebar flex flex-row items-center gap-4 border-b border-[var(--border)] p-4 sm:p-5 md:flex-col md:border-b-0 md:border-r md:p-6">
+          <div className="team-card-photo-wrap shrink-0">
+            <div className="team-card-photo-frame relative size-20 shrink-0 overflow-hidden rounded-lg border bg-[var(--bg-team)] sm:size-24 md:size-40 lg:size-44">
               {member.photoUrl ? (
                 <Image
                   src={member.photoUrl}
@@ -79,7 +80,7 @@ function TeamCard({ member, canHover }: TeamCardProps) {
                   width={352}
                   height={352}
                   loading="lazy"
-                  sizes="(max-width: 640px) 152px, 176px"
+                  sizes="(max-width: 640px) 80px, (max-width: 768px) 96px, 176px"
                   className="team-card-photo h-full w-full object-cover object-center"
                 />
               ) : (
@@ -102,7 +103,7 @@ function TeamCard({ member, canHover }: TeamCardProps) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`View ${member.name} on Resumurai (opens in new tab)`}
-            className="team-card-cta link-muted tap-target inline-flex text-center text-sm underline-offset-4 hover:underline"
+            className="team-card-cta link-muted tap-target inline-flex min-w-0 break-words text-left text-sm underline-offset-4 hover:underline md:text-center"
           >
             View on Resumurai ↗
           </a>
@@ -110,14 +111,14 @@ function TeamCard({ member, canHover }: TeamCardProps) {
 
         <div className="flex min-w-0 flex-col p-5 md:p-6 lg:p-7">
           <header className="team-card-header border-b border-[var(--border)] pb-4 md:pb-5">
-            <h3 className="type-title">{member.name}</h3>
-            <p className="type-body-lg mt-2.5 font-semibold leading-snug text-[var(--fg)]">
+            <h3 className="type-title break-words">{member.name}</h3>
+            <p className="type-body-lg mt-2.5 break-words font-semibold leading-snug text-[var(--fg)]">
               {member.role}
             </p>
-            <p className="mt-2 text-sm leading-relaxed text-muted">{member.location}</p>
+            <p className="mt-2 break-words text-sm leading-relaxed text-muted">{member.location}</p>
           </header>
 
-          <div className="mt-5 grid gap-5 sm:grid-cols-2 sm:gap-6">
+          <div className="mt-5 grid gap-5">
             <div>
               <p className="team-card-field-label">Where things are</p>
               <p className="team-card-meta mt-2">{member.chapter}</p>
