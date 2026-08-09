@@ -3,6 +3,7 @@ export const site = {
   tagline: "The studio behind Resumurai",
   productName: "Resumurai",
   productUrl: "https://www.resumurai.com",
+  productLogo: "/brand/resumurai-logo.png",
   productBlurb:
     "Build one profile, keep a clean public page, and share a link or QR code instead of hunting down another PDF attachment.",
   productTags: ["Public profiles", "Shareable links", "QR codes"] as const,
@@ -11,7 +12,7 @@ export const site = {
   /** Temporary — replace when the real domain is locked. */
   domainHint: "gizakura.com",
   heroLine:
-    "Four Michigan students building tools people can actually share, starting with a digital resume and portfolio platform.",
+    "Four founders. Shareable tools. First stop: your portfolio.",
   aboutHeading: "A small studio learning new tools as they ship.",
   aboutParagraphs: [
     "Gizakura is four founders shipping software together. We met as students, took on real product work over the summer, and kept going when the learning curve got steep: Cursor, Next.js, Supabase, Clerk, Prisma, Vercel, Cloudflare R2, and more, because we wanted something people could open and use, not a class project that dies at demo day.",
@@ -63,7 +64,7 @@ export const team: TeamMember[] = [
     passions: ["Full Stack Development", "Digital Art", "Videography"],
     resumuraiUrl: "https://www.resumurai.com",
     linkedin: "https://www.linkedin.com/in/placeholder-one",
-    photoUrl: "/team/matthew-wong.png",
+    photoUrl: "/team/matthew-wong.webp",
     accent: "#e8ff47",
     accentSoft: "rgba(232, 255, 71, 0.18)",
   },
@@ -84,7 +85,7 @@ export const team: TeamMember[] = [
     ],
     resumuraiUrl: "https://www.resumurai.com/u/calebross/resume",
     linkedin: "https://www.linkedin.com/in/placeholder-two",
-    photoUrl: "/team/caleb-ross.png",
+    photoUrl: "/team/caleb-ross.webp",
     accent: "#ff6b4a",
     accentSoft: "rgba(255, 107, 74, 0.18)",
   },
@@ -101,7 +102,7 @@ export const team: TeamMember[] = [
     passions: ["Digital Art", "Literature", "Cinema & Animation"],
     resumuraiUrl: "https://www.resumurai.com",
     linkedin: "https://www.linkedin.com/in/placeholder-three",
-    photoUrl: "/team/raymond-zhang.png",
+    photoUrl: "/team/raymond-zhang.webp",
     accent: "#5ec8ff",
     accentSoft: "rgba(94, 200, 255, 0.18)",
   },
@@ -118,7 +119,7 @@ export const team: TeamMember[] = [
     passions: ["Graphic Design", "3D Animation", "Visual Design"],
     resumuraiUrl: "https://www.resumurai.com",
     linkedin: "https://www.linkedin.com/in/placeholder-four",
-    photoUrl: "/team/evan-chen.png",
+    photoUrl: "/team/evan-chen.webp",
     accent: "#c4a1ff",
     accentSoft: "rgba(196, 161, 255, 0.18)",
   },
