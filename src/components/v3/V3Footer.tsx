@@ -10,7 +10,7 @@ export function V3Footer() {
         <div>
           <div className="flex items-center">
             <Image
-              src="/brand/gizakura-lockup.png"
+              src="/brand/gizakura-lockup-light.png"
               alt={site.name}
               width={182}
               height={60}
