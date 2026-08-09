@@ -10,11 +10,11 @@ export function V3Footer() {
         <div>
           <div className="flex items-center gap-2.5">
             <Image
-              src="/brand/gizakura-logo-nobg.svg"
+              src="/brand/gizakura-logo.svg"
               alt=""
               width={28}
               height={28}
-              className="h-7 w-7 brightness-0 invert"
+              className="h-7 w-7"
               aria-hidden
             />
             <span className="font-display text-lg font-normal text-white">{site.name}</span>
