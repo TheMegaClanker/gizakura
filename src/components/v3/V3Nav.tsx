@@ -25,17 +25,24 @@ export function V3Nav() {
             className="tap-target -ml-1 flex cursor-pointer items-center gap-2 sm:-ml-2 md:-ml-3 md:gap-2.5"
             aria-label={`${site.name} home`}
           >
+            {/* Mobile: icon only */}
             <Image
               src="/brand/gizakura-logo.svg"
-              alt=""
+              alt={site.name}
               width={32}
               height={32}
-              className="h-7 w-7 shrink-0 md:h-8 md:w-8"
+              className="h-7 w-7 shrink-0 sm:hidden"
               priority
             />
-            <span className="type-brand-nav hidden font-display font-normal sm:inline">
-              {site.name}
-            </span>
+            {/* sm+: full lockup PNG (logo + wordmark) */}
+            <Image
+              src="/brand/gizakura-lockup-light.png"
+              alt={site.name}
+              width={182}
+              height={60}
+              className="hidden h-8 w-auto sm:block"
+              priority
+            />
           </Link>
           <nav aria-label="Primary" className="flex items-center gap-0 sm:gap-0.5 md:gap-1">
             {links.map((link) => (
