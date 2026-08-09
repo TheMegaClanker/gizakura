@@ -10,11 +10,11 @@ export function V3Footer() {
         <div>
           <div className="flex items-center">
             <Image
-              src="/brand/gizakura-lockup-light.png"
+              src="/brand/gizakura-lockup-white.png"
               alt={site.name}
               width={182}
               height={60}
-              className="h-8 w-auto opacity-90 brightness-0 invert"
+              className="h-8 w-auto opacity-90"
             />
           </div>
           <p className="measure-prose mt-3 max-w-sm text-sm leading-relaxed text-muted-on-dark">
