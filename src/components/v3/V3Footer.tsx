@@ -8,14 +8,16 @@ export function V3Footer() {
       <div className="pattern-diagonal-dark absolute inset-0 opacity-60" aria-hidden />
       <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-6 py-14 md:flex-row md:items-end md:justify-between md:px-10">
         <div>
-          <div className="flex items-center">
+          <div className="flex items-center gap-2.5">
             <Image
-              src="/brand/gizakura-lockup-white.png"
-              alt={site.name}
-              width={182}
-              height={60}
-              className="h-8 w-auto opacity-90"
+              src="/brand/gizakura-logo.svg"
+              alt=""
+              width={28}
+              height={28}
+              className="h-7 w-7 brightness-0 invert"
+              aria-hidden
             />
+            <span className="font-display text-lg font-normal text-white">{site.name}</span>
           </div>
           <p className="measure-prose mt-3 max-w-sm text-sm leading-relaxed text-muted-on-dark">
             {site.tagline}.
